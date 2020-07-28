@@ -137,7 +137,7 @@ public class Search extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setText("Enter Date Of Birth");
 
-        btn_search.setBackground(new java.awt.Color(51, 51, 51));
+        btn_search.setBackground(new java.awt.Color(0, 0, 0));
         btn_search.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_search.setForeground(new java.awt.Color(255, 255, 255));
         btn_search.setText("Search");
