@@ -5,6 +5,14 @@
  */
 package crime_management_system;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PRANTIK
@@ -141,11 +149,21 @@ public class Search extends javax.swing.JFrame {
         btn_search.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_search.setForeground(new java.awt.Color(255, 255, 255));
         btn_search.setText("Search");
+        btn_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_searchActionPerformed(evt);
+            }
+        });
 
         btn_reset.setBackground(new java.awt.Color(0, 0, 0));
         btn_reset.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_reset.setForeground(new java.awt.Color(255, 255, 255));
         btn_reset.setText("Reset");
+        btn_reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_resetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -231,6 +249,36 @@ public class Search extends javax.swing.JFrame {
         setVisible(false);
         new login().setVisible(true);
     }//GEN-LAST:event_btn_logoutActionPerformed
+
+    private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new Search().setVisible(true);
+    }//GEN-LAST:event_btn_resetActionPerformed
+
+    private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
+        // TODO add your handling code here:
+        String mobno=txt_mob.getText();
+        String dob=txt_dob.getText();
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/crimemanagement","root","");
+            Statement st=con.createStatement();
+            ResultSet rs=st.executeQuery("select * from crime natural join victim where vmmob='"+mobno+"' and vmdob='"+dob+"'");
+            if(rs.next())
+            {
+                setVisible(false);
+                new Report(mobno,dob).setVisible(true);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Result in Process");
+            }
+        }
+        catch(ClassNotFoundException | SQLException | HeadlessException e){
+            JOptionPane.showMessageDialog(null,"Connection Error");
+        }
+    }//GEN-LAST:event_btn_searchActionPerformed
 
     /**
      * @param args the command line arguments
