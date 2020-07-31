@@ -470,7 +470,7 @@ public class home extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setText("Residence Proof");
 
-        txt_vproof.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Not Selected", "Rental Agreement ", "Passport", "Voter ID", "Ration Card", "Aadhaar Card (UID)", "Driving License", "Utility Bills" }));
+        txt_vproof.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Not Selected", "Rental Agreement ", "Passport", "Voter ID", "Ration Card", "Aadhaar Card (UID)", "Driving License", "Utility Bills", "Pan Card" }));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel16.setText("Residence ID");

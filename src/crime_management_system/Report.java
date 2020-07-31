@@ -5,7 +5,13 @@
  */
 package crime_management_system;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.HeadlessException;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -304,9 +310,9 @@ public class Report extends javax.swing.JFrame {
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                 .addComponent(jLabel26)
-                                                                .addComponent(jLabel38))
-                                                            .addGap(47, 47, 47))
-                                                        .addComponent(jLabel40))
+                                                                .addComponent(jLabel38)
+                                                                .addComponent(jLabel40))
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(lbl_cmark)
                                                         .addComponent(lbl_cgender)
@@ -443,6 +449,11 @@ public class Report extends javax.swing.JFrame {
 
         btn_back.setForeground(new java.awt.Color(255, 0, 51));
         btn_back.setText("Back");
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -492,8 +503,37 @@ public class Report extends javax.swing.JFrame {
 
     private void btn_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_printActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
-        new Search().setVisible(true);
+       PrinterJob job = PrinterJob.getPrinterJob();
+            job.setJobName("Print Data");
+            
+            job.setPrintable(new Printable(){
+            public int print(Graphics pg,PageFormat pf, int pageNum){
+                    pf.setOrientation(PageFormat.LANDSCAPE);
+                 if(pageNum>0){
+                    return Printable.NO_SUCH_PAGE;
+                }
+                
+                Graphics2D g2 = (Graphics2D)pg;
+                g2.translate(pf.getImageableX(), pf.getImageableY());
+                g2.scale(0.70,1);
+                
+                jPanel2.paint(g2);
+ //         
+               
+                return Printable.PAGE_EXISTS;
+                         
+                
+            }
+    });
+         
+        boolean ok = job.printDialog();
+        if(ok){
+        try{
+            
+        job.print();
+        }
+        catch (PrinterException ex){}
+        }
     }//GEN-LAST:event_btn_printActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
@@ -541,6 +581,12 @@ public class Report extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_formComponentShown
+
+    private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new Search().setVisible(true);
+    }//GEN-LAST:event_btn_backActionPerformed
 
     /**
      * @param args the command line arguments
