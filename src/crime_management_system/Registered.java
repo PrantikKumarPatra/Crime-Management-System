@@ -930,10 +930,10 @@ public class Registered extends javax.swing.JFrame {
                     txt_sname.setSelectedIndex(5);
                     break;
             case "Dum Dum":
-                    txt_sname.setSelectedIndex(7);
+                    txt_sname.setSelectedIndex(6);
                     break; 
             case "Bardhaman":
-                    txt_sname.setSelectedIndex(8);
+                    txt_sname.setSelectedIndex(7);
                     break; 
         }
        txt_vdob.setText(model.getValueAt(i,17).toString());
