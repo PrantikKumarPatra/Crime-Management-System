@@ -48,7 +48,7 @@ public class Registered extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         btn_new = new javax.swing.JButton();
         btn_searchs = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        btn_registed = new javax.swing.JButton();
         btn_logout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -98,9 +98,10 @@ public class Registered extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         txt_vmob = new javax.swing.JTextField();
         btn_update = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_Cancel = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btn_delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,12 +125,12 @@ public class Registered extends javax.swing.JFrame {
             }
         });
 
-        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton19.setForeground(new java.awt.Color(255, 0, 0));
-        jButton19.setText("Registered case and Update case");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        btn_registed.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_registed.setForeground(new java.awt.Color(255, 0, 0));
+        btn_registed.setText("Registered case and Update case");
+        btn_registed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                btn_registedActionPerformed(evt);
             }
         });
 
@@ -151,7 +152,7 @@ public class Registered extends javax.swing.JFrame {
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_registed, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addComponent(btn_logout)))
@@ -172,7 +173,7 @@ public class Registered extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(btn_searchs)
                 .addGap(67, 67, 67)
-                .addComponent(jButton19)
+                .addComponent(btn_registed)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                 .addComponent(btn_logout)
                 .addGap(19, 19, 19))
@@ -581,6 +582,8 @@ public class Registered extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btn_update.setBackground(new java.awt.Color(0, 0, 0));
+        btn_update.setForeground(new java.awt.Color(255, 255, 255));
         btn_update.setText("Update");
         btn_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -588,7 +591,14 @@ public class Registered extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cancel");
+        btn_Cancel.setBackground(new java.awt.Color(0, 0, 0));
+        btn_Cancel.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Cancel.setText("Cancel");
+        btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CancelActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -608,6 +618,15 @@ public class Registered extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        btn_delete.setBackground(new java.awt.Color(0, 0, 0));
+        btn_delete.setForeground(new java.awt.Color(255, 255, 255));
+        btn_delete.setText("Delete");
+        btn_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -620,17 +639,19 @@ public class Registered extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(425, 425, 425)
-                        .addComponent(btn_update)
-                        .addGap(210, 210, 210)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(268, 268, 268)
+                        .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(139, 139, 139)
+                        .addComponent(btn_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(115, 115, 115)
+                        .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -646,11 +667,12 @@ public class Registered extends javax.swing.JFrame {
                         .addGap(12, 12, 12)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_update)
-                    .addComponent(jButton2))
-                .addContainerGap())
+                    .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -733,11 +755,11 @@ public class Registered extends javax.swing.JFrame {
         new Search().setVisible(true);
     }//GEN-LAST:event_btn_searchsActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void btn_registedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registedActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        //new Registered().setVisible(true);
-    }//GEN-LAST:event_jButton19ActionPerformed
+        new Registered().setVisible(true);
+    }//GEN-LAST:event_btn_registedActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
         // TODO add your handling code here:
@@ -969,7 +991,7 @@ public class Registered extends javax.swing.JFrame {
         
         
         
-        Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/crimemanagement","root","");
             String sql="update crime set criname=?,criaddr=?,criage=?,crigender=?,crimark=?,cmtype=?,cmdate=?,cmtime=?,cmplace=?,cmdesc=?,cmstatus=? where caseid=? ";
             PreparedStatement pst=con.prepareStatement(sql);
@@ -1016,6 +1038,48 @@ public class Registered extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_updateActionPerformed
 
+    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new Registered().setVisible(true);
+    }//GEN-LAST:event_btn_CancelActionPerformed
+
+    private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel df=(DefaultTableModel)jTable1.getModel();
+        int selectedIndex=jTable1.getSelectedRow();
+        try {
+            int caseid=Integer.parseInt(df.getValueAt(selectedIndex,0).toString());
+            
+            int dialogResult = JOptionPane.showConfirmDialog(null,"Do you want to delete the records","Warning",JOptionPane.YES_NO_OPTION);
+            if(dialogResult==JOptionPane.YES_OPTION)
+            {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/crimemanagement","root","");
+            
+            String sql2="delete from victim  where caseid=? ";
+            PreparedStatement pst2=con.prepareStatement(sql2);
+            pst2.setInt(1, caseid);
+            pst2.executeUpdate();
+            
+            
+            String sql="delete from crime  where caseid=? ";
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setInt(1, caseid);
+            pst.executeUpdate();
+            
+            
+            
+            JOptionPane.showMessageDialog(this,"Succesfully Deleted");
+            setVisible(false);
+            new Registered().setVisible(true);
+            }
+        }
+        catch(NumberFormatException | HeadlessException | ClassNotFoundException | SQLException e){
+            Logger.getLogger(Registered.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_btn_deleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1052,14 +1116,15 @@ public class Registered extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Cancel;
+    private javax.swing.JButton btn_delete;
     private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_new;
+    private javax.swing.JButton btn_registed;
     private javax.swing.JButton btn_searchs;
     private javax.swing.JButton btn_update;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
