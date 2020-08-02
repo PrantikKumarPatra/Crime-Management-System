@@ -15,6 +15,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -44,7 +45,6 @@ public class Registered extends javax.swing.JFrame {
         btn_new = new javax.swing.JButton();
         btn_searchs = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
         btn_logout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -105,7 +105,6 @@ public class Registered extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(102, 255, 102));
 
         btn_new.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_new.setForeground(new java.awt.Color(255, 0, 0));
         btn_new.setText("Register New Case");
         btn_new.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,18 +121,11 @@ public class Registered extends javax.swing.JFrame {
         });
 
         jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton19.setText("Registered case");
+        jButton19.setForeground(new java.awt.Color(255, 0, 0));
+        jButton19.setText("Registered case and Update case");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton19ActionPerformed(evt);
-            }
-        });
-
-        jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton20.setText("Update Case records");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
             }
         });
 
@@ -158,18 +150,14 @@ public class Registered extends javax.swing.JFrame {
                                 .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
-                                .addComponent(btn_logout))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_logout)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_new, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn_searchs, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btn_searchs, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(269, 269, 269))
         );
         jPanel10Layout.setVerticalGroup(
@@ -181,9 +169,7 @@ public class Registered extends javax.swing.JFrame {
                 .addComponent(btn_searchs)
                 .addGap(67, 67, 67)
                 .addComponent(jButton19)
-                .addGap(67, 67, 67)
-                .addComponent(jButton20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                 .addComponent(btn_logout)
                 .addGap(19, 19, 19))
         );
@@ -349,7 +335,7 @@ public class Registered extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setText("Status");
 
-        txt_cstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Not Selected", "Active", "Closed" }));
+        txt_cstatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Not Selected", "Active", "Reopen", "Closed" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -405,15 +391,15 @@ public class Registered extends javax.swing.JFrame {
                     .addComponent(txt_cdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(txt_ctime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txt_cplace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txt_cdesc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(txt_cstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -504,7 +490,7 @@ public class Registered extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
                             .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
@@ -566,17 +552,17 @@ public class Registered extends javax.swing.JFrame {
                     .addComponent(jRadioButton4)
                     .addComponent(jRadioButton5)
                     .addComponent(jRadioButton6))
-                .addGap(11, 11, 11)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(txt_vmob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txt_vproof, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_vproofid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_sname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -600,6 +586,11 @@ public class Registered extends javax.swing.JFrame {
                 "Case Id", "Suspect Name", "Address", "Age", "Gender", "Mark", "Type of Crime", "Date", "Time", "Loaction", "Description", "Status", "Victim Name", "Address", "Contact No", "Residence Proof", "Police Station", "Date of Birth", "Gender", "Proof Id", "Officer"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -733,12 +724,6 @@ public class Registered extends javax.swing.JFrame {
         //new Registered().setVisible(true);
     }//GEN-LAST:event_jButton19ActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        //new StudentsResult().setVisible(true);
-    }//GEN-LAST:event_jButton20ActionPerformed
-
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
         // TODO add your handling code here:
         setVisible(false);
@@ -801,6 +786,134 @@ public class Registered extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_officerActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int i=jTable1.getSelectedRow();
+        TableModel model=jTable1.getModel();
+        //Crimal 
+        txt_cname.setText(model.getValueAt(i,1).toString());
+        txt_caddr.setText(model.getValueAt(i,2).toString());
+        txt_cage.setText(model.getValueAt(i,3).toString());
+        String gender=model.getValueAt(i, 4).toString();
+            if(gender.equals("Male")){
+                jRadioButton1.setSelected(true);
+            }
+            else if(gender.equals("Female")){
+                jRadioButton2.setSelected(true);
+            }
+            else{
+                jRadioButton3.setSelected(true);
+            }
+        txt_cmark.setText(model.getValueAt(i,5).toString());
+        //Crime
+        String type=model.getValueAt(i, 6).toString();
+        switch(type){
+            case "Kidnapping":
+                    txt_ctype.setSelectedIndex(1);
+                    break;
+            case "Rape":
+                    txt_ctype.setSelectedIndex(2);
+                    break;
+            case "Theft":
+                    txt_ctype.setSelectedIndex(3);
+                    break;
+            case "Drug Crimes":
+                    txt_ctype.setSelectedIndex(4);
+                    break;
+            case "First-Degree Murder":
+                    txt_ctype.setSelectedIndex(5);
+                    break;
+            case "Blackmail":
+                    txt_ctype.setSelectedIndex(6);
+                    break; 
+        }
+        txt_cdate.setText(model.getValueAt(i,7).toString());
+        txt_ctime.setText(model.getValueAt(i,8).toString());
+        txt_cplace.setText(model.getValueAt(i,9).toString());
+        txt_cdesc.setText(model.getValueAt(i,10).toString());
+        String status=model.getValueAt(i, 11).toString();
+        switch(status){
+            case "Active":
+                    txt_cstatus.setSelectedIndex(1);
+                    break;
+            case "Reopen":
+                    txt_cstatus.setSelectedIndex(2);
+                    break;
+            case "Closed":
+                    txt_cstatus.setSelectedIndex(3);
+                    break;
+            
+        }
+        //Victim
+        txt_vname.setText(model.getValueAt(i,12).toString());
+        txt_vaddr.setText(model.getValueAt(i,13).toString());
+        txt_vmob.setText(model.getValueAt(i,14).toString());
+        String residence=model.getValueAt(i, 15).toString();
+        switch(residence){
+            case "Rental Agreement":
+                    txt_vproof.setSelectedIndex(1);
+                    break;
+            case "Passport":
+                    txt_vproof.setSelectedIndex(2);
+                    break;
+            case "Voter ID":
+                    txt_vproof.setSelectedIndex(3);
+                    break;
+            case "Ration Card":
+                    txt_vproof.setSelectedIndex(4);
+                    break;
+            case "Aadhaar Card (UID)":
+                    txt_vproof.setSelectedIndex(5);
+                    break;
+            case "Driving License":
+                    txt_vproof.setSelectedIndex(6);
+                    break; 
+            case "Utility Bills":
+                    txt_vproof.setSelectedIndex(7);
+                    break;
+            case "Pan Card":
+                    txt_vproof.setSelectedIndex(8);
+                    break;
+        }
+        String station=model.getValueAt(i, 16).toString();
+        switch(station){
+            case "Panskura":
+                    txt_sname.setSelectedIndex(1);
+                    break;
+            case "Tamluk":
+                    txt_sname.setSelectedIndex(2);
+                    break;
+            case "Lalgola":
+                    txt_sname.setSelectedIndex(3);
+                    break;
+            case "Khirpai":
+                    txt_sname.setSelectedIndex(4);
+                    break;
+            case "Ranaghat":
+                    txt_sname.setSelectedIndex(5);
+                    break;
+            case "Dum Dum":
+                    txt_sname.setSelectedIndex(7);
+                    break; 
+            case "Bardhaman":
+                    txt_sname.setSelectedIndex(8);
+                    break; 
+        }
+       txt_vdob.setText(model.getValueAt(i,17).toString());
+       String gender1=model.getValueAt(i, 18).toString();
+            if(gender1.equals("Male")){
+                jRadioButton4.setSelected(true);
+            }
+            else if(gender1.equals("Female")){
+                jRadioButton5.setSelected(true);
+            }
+            else{
+                jRadioButton6.setSelected(true);
+            }
+        txt_vproofid.setText(model.getValueAt(i,19).toString());
+         txt_officer.setText(model.getValueAt(i,20).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -843,7 +956,6 @@ public class Registered extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
