@@ -5,6 +5,7 @@
  */
 package crime_management_system;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -40,6 +42,8 @@ public class Registered extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         btn_new = new javax.swing.JButton();
@@ -93,7 +97,7 @@ public class Registered extends javax.swing.JFrame {
         txt_officer = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txt_vmob = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_update = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -195,8 +199,10 @@ public class Registered extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Male");
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Female");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +210,7 @@ public class Registered extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("Other");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -432,6 +439,7 @@ public class Registered extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("Gender");
 
+        buttonGroup2.add(jRadioButton4);
         jRadioButton4.setText("Male");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,6 +447,7 @@ public class Registered extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(jRadioButton5);
         jRadioButton5.setText("Female");
         jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,6 +455,7 @@ public class Registered extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(jRadioButton6);
         jRadioButton6.setText("Other");
         jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -571,7 +581,12 @@ public class Registered extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Update");
+        btn_update.setText("Update");
+        btn_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
 
@@ -612,7 +627,7 @@ public class Registered extends javax.swing.JFrame {
                         .addComponent(jScrollPane1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(425, 425, 425)
-                        .addComponent(jButton1)
+                        .addComponent(btn_update)
                         .addGap(210, 210, 210)
                         .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -633,7 +648,7 @@ public class Registered extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btn_update)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -914,6 +929,93 @@ public class Registered extends javax.swing.JFrame {
          txt_officer.setText(model.getValueAt(i,20).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel df=(DefaultTableModel)jTable1.getModel();
+        int selectedIndex=jTable1.getSelectedRow();
+        try {
+            int caseid=Integer.parseInt(df.getValueAt(selectedIndex,0).toString());
+        // Criminal details input
+        String cname=txt_cname.getText();
+        String caddr=txt_caddr.getText();
+        String cage=txt_cage.getText();
+        jRadioButton1.setActionCommand("Male");
+        jRadioButton2.setActionCommand("Female");
+        jRadioButton3.setActionCommand("Other");
+        String cgender=buttonGroup1.getSelection().getActionCommand();
+        String cmark=txt_cmark.getText();
+        
+        //Crime details input
+        String ctype=(String)txt_ctype.getSelectedItem();
+        String cdate=txt_cdate.getText();
+        String ctime=txt_ctime.getText();
+        String cplace=txt_cplace.getText();
+        String cdesc=txt_cdesc.getText();
+        String cstatus=(String)txt_cstatus.getSelectedItem();
+        
+        //Victime Details input
+        String vname=txt_vname.getText();
+        String vaddr=txt_vaddr.getText();
+        String vmob=txt_vmob.getText();
+        String vproof=(String)txt_vproof.getSelectedItem();
+        String sname=(String)txt_sname.getSelectedItem();
+        String vdob=txt_vdob.getText();
+        jRadioButton4.setActionCommand("Male");
+        jRadioButton5.setActionCommand("Female");
+        jRadioButton6.setActionCommand("Other");
+        String vgender=buttonGroup2.getSelection().getActionCommand();
+        String vproofid=txt_vproofid.getText();
+        String pofficer=txt_officer.getText();
+        
+        
+        
+        Class.forName("com.mysql.jdbc.Driver");
+            Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/crimemanagement","root","");
+            String sql="update crime set criname=?,criaddr=?,criage=?,crigender=?,crimark=?,cmtype=?,cmdate=?,cmtime=?,cmplace=?,cmdesc=?,cmstatus=? where caseid=? ";
+            PreparedStatement pst=con.prepareStatement(sql);
+            
+            //Criminal input
+            pst.setString(1, cname);
+            pst.setString(2, caddr);
+            pst.setString(3, cage);
+            pst.setString(4, cgender);
+            pst.setString(5, cmark);
+            
+            //Crime input
+            pst.setString(6, ctype);
+            pst.setString(7, cdate);
+            pst.setString(8, ctime);
+            pst.setString(9, cplace);
+            pst.setString(10, cdesc);
+            pst.setString(11, cstatus);
+            pst.setInt(12, caseid);
+            pst.executeUpdate();
+            
+            //Victime Details
+            String sql2="update  victim set vmname=?,vmaddr=?,vmmob=?,vmproof=?,station=?,vmdob=?,vmgender=?,vmproofid=?,officer=? where caseid=?";
+            PreparedStatement pst2=con.prepareStatement(sql2);
+            pst2.setString(1, vname);
+            pst2.setString(2, vaddr);
+            pst2.setString(3, vmob);
+            pst2.setString(4, vproof);
+            pst2.setString(5, sname);
+            pst2.setString(6, vdob);
+            pst2.setString(7, vgender);
+            pst2.setString(8, vproofid);
+            pst2.setString(9, pofficer);
+            pst2.setInt(10, caseid);
+            
+            pst2.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this,"Succesfully Upadted");
+            setVisible(false);
+            new Registered().setVisible(true);
+        }
+        catch (NumberFormatException | ClassNotFoundException | SQLException | HeadlessException ex) {
+            Logger.getLogger(Registered.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_updateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -953,7 +1055,9 @@ public class Registered extends javax.swing.JFrame {
     private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_new;
     private javax.swing.JButton btn_searchs;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_update;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
